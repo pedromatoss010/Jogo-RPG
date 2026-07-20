@@ -1,0 +1,19 @@
+# Saves do jogo (dados de sessão, não devem ir pro repo)
+saves/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Ambientes virtuais (se algum dia usar um)
+venv/
+.venv/
+env/
+
+# Arquivos de configuração de IDE
+.vscode/
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
