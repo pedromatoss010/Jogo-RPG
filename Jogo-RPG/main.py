@@ -40,7 +40,7 @@ def main():
         print("       A TORRE DO MAGO SOMBRIO         ")
         print("=======================================")
         print(f"Herói: {player['nome']} | Skin: {player['skin']}")
-        print(f"HP: {player['hp']} | Ouro: {player['ouro']} | Poções: {player['pocoes']}")
+        print(f"HP: {player['hp']}/{player['hp_max']} | Ouro: {player['ouro']} | Poções: {player['pocoes']}")
         print(f"Ataque: +{player['bonus_ataque']} | Vitórias: {player['vitorias']}")
         print(f"Defesa: +{player['bonus_defesa']}")
         print("---------------------------------------")
@@ -65,7 +65,7 @@ def main():
                 if evento == 1:
                     moedas = random.randint(30, 60)
                     player["ouro"] += moedas
-                    print(f"Você achou um baú com {moedas} moedas de ouro")
+                    print(f"Você achou algumas {moedas} moedas de ouro no chão.")
                     time.sleep(2)
 
                 elif evento == 2:
@@ -77,13 +77,14 @@ def main():
                     time.sleep(2)
             case 2:
                 limpa()
-                if player["hp"] == 150:
+                if player["hp"] == player["hp_max"]:
                     print("Vida cheia!")
                     time.sleep(1)
                 else:
                     if player["pocoes"] > 0:
                         player["pocoes"] -= 1
-                        player["hp"] = min(150, player["hp"] + 40)
+                        cura = int(player["hp_max"] * 0.2)
+                        player["hp"] = min(player["hp_max"], player["hp"] + cura)
                         print("Você recuperou vida!")
                     else:
                         print("Sem poções! Vá até a loja.")

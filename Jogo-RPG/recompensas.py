@@ -63,7 +63,7 @@ def abrir_bau(player):
             return
         case "vida":
             cura = random.randint(20, 35)
-            player["hp"] = min(150, player["hp"] + cura)
+            player["hp"] = min(player["hp_max"], player["hp"] + cura)
             frase = random.choice(frases_vida)
             print(frase.format(valor=cura))
             time.sleep(2.5)

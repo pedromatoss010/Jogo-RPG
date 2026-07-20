@@ -3,15 +3,15 @@ from utils import limpa
 
 def loja(player):
     while True:
-        preco_espada = 110 + (player["compras_espada"] * 35)
-        preco_escudo = 110 + (player["compras_escudo"] * 35)
+        preco_espada = 90 + (player["compras_espada"] * 35)
+        preco_escudo = 90 + (player["compras_escudo"] * 35)
         limpa()
         print("------------ LOJA SOMBRIA ------------")
         print(f"Seu ouro: {player['ouro']}")
         print("---------------------------------------------")
         print("1. Poção de cura (50 moedas)")
-        print("2. Afiar Espada(+5 Dano fixo) (110 Moedas)")
-        print("3. Comprar Escudo (+5 Defesa) (110 Moedas)")
+        print(f"2. Afiar Espada(+5 Dano fixo) ({preco_espada} Moedas)")
+        print(f"3. Comprar Escudo (+5 Defesa) ({preco_escudo} Moedas)")
         print("4. Comprar Bomba (100 Moedas)")
         print("5. Voltar para a Torre")
         print("---------------------------------------------")

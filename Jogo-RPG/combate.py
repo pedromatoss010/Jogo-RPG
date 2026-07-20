@@ -26,23 +26,24 @@ def combate(player):
         except ValueError:
             acao_combate = 0
         
-        if acao_combate == 1: # ATACAR O ESQUELETO
+        if acao_combate == 1: 
             dano_jogador = random.randint(16, 21) + player["bonus_ataque"]
             inimigo["hp"] -= dano_jogador
             print(f"--> Você causou {dano_jogador} de dano!")
             time.sleep(0.7)
 
-        elif acao_combate == 2: # TOMAR POÇÃO DURANTE O COMBATE
+        elif acao_combate == 2: 
             if player["pocoes"] > 0:
                 player["pocoes"] -= 1
-                player["hp"] = min(150, player["hp"] + 30)
+                cura = int(player["hp_max"] * 0.3)
+                player["hp"] = min(player["hp_max"], player["hp"] + cura)
                 print("Você recuperou energia!")
                 time.sleep(0.7)
             else:
                 print("Você não tem poções! Perdeu o turno!")
                 time.sleep(0.7)
 
-        elif acao_combate == 3: # LANÇAR A BOMBA 
+        elif acao_combate == 3:
             if player["bomba"] > 0:
                 dano_bomba = random.randint(30, 55)
                 inimigo["hp"] -= dano_bomba
@@ -63,8 +64,8 @@ def combate(player):
 
     if player["hp"] > 0: # 
         print(f"VITÓRIA! Você derrotou o {inimigo["nome"]} em {round_atual} rounds!")
-        player["ouro"]  += inimigo['ouro']
-        player["vitorias"]  += 1
+        player["ouro"] += inimigo['ouro']
+        player["vitorias"] += 1
         round_atual = 0
         time.sleep(3)
 

@@ -3,6 +3,7 @@ from player import criar_player
 import time
 
 def personalizando_heroi():
+    limpa()
     print("=======================================")    
     print("                HERÓI                  ")
     print("=======================================")
