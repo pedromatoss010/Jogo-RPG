@@ -1,11 +1,10 @@
 import time
 from utils import limpa
 
-
 def loja(player):
-    preco_espada = 110 + (player["compras_espada"] * 35)
-    preco_escudo = 110 + (player["compras_escudo"] * 35)
     while True:
+        preco_espada = 110 + (player["compras_espada"] * 35)
+        preco_escudo = 110 + (player["compras_escudo"] * 35)
         limpa()
         print("------------ LOJA SOMBRIA ------------")
         print(f"Seu ouro: {player['ouro']}")

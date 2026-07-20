@@ -15,7 +15,7 @@ def main():
             print("     TORRE DO MAGO SOMBRIO    ")
             print("==============================")
             print("1.Carregar Jogo")
-            print("2. Novo Jojo")
+            print("2. Novo Jogo")
             opcao = input("O que deseja? ")
 
             if opcao == "1":
@@ -93,11 +93,26 @@ def main():
             
             case 4:
                 limpa()
-                print(f"Você fugiu da torre com {player['ouro']} moedas de ouro. Covarde, porém vivo!")
-                time.sleep(3)
-                return
+                while True:
+                    resposta = input("Tem certeza que deseja fugir da torre? Você perderá todo seu progresso no jogo(Responda com S/N): ").strip().upper()
+
+                    if resposta == "S":
+                        print(f"Você fugiu da torre com {player['ouro']} moedas de ouro. Covarde, porém vivo!")
+                        time.sleep(3)
+                        apagar_save()
+                        return
+                    elif resposta == "N":
+                        print("Voltando para o Menu...")
+                        time.sleep(1.5)   
+                        break
+                    else:
+                        print("Resposta Inválida!")  
+                        continue                      
             case 5:
                 salvar_player(player)
+                limpa()
+                print("Jogo salvo com sucesso!")
+                time.sleep(1.5)
             case _:
                 print("Ação inválida!")
                 time.sleep(1)
