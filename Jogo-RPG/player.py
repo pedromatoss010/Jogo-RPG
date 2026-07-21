@@ -1,9 +1,9 @@
 def criar_player(nome):
     return {
     "nome": nome,
-    "hp": 150,
-    "hp_max": 150,
-    "ouro": 6007, 
+    "hp": 300,
+    "hp_max": 300,
+    "ouro": 67, 
     "pocoes": 1,
     "bomba": 0,
     "bonus_defesa": 0,

@@ -27,7 +27,7 @@ def combate(player):
             acao_combate = 0
         
         if acao_combate == 1: 
-            dano_jogador = random.randint(16, 21) + player["bonus_ataque"]
+            dano_jogador = random.randint(19, 26) + player["bonus_ataque"]
             inimigo["hp"] -= dano_jogador
             print(f"--> Você causou {dano_jogador} de dano!")
             time.sleep(0.7)
