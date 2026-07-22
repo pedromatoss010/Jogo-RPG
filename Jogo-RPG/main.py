@@ -5,6 +5,7 @@ from utils import limpa
 from loja import loja
 from personalize import personalizando_heroi
 from save import existe_save, salvar_player, carregar_player, apagar_save
+from cores import AMARELO, RESET
 
 import time
 import random
@@ -42,7 +43,7 @@ def main():
         print("       A TORRE DO MAGO SOMBRIO         ")
         print("=======================================")
         print(f"Herói: {player['nome']} | Skin: {player['skin']}")
-        print(f"HP: {player['hp']}/{player['hp_max']} | Ouro: {player['ouro']} | Poções: {player['pocoes']}")
+        print(f"HP: {player['hp']}/{player['hp_max']} | {AMARELO}Ouro: {player['ouro']} {RESET}| Poções: {player['pocoes']}")
         print(f"Ataque: +{player['bonus_ataque']} | Vitórias: {player['vitorias']}")
         print(f"Defesa: +{player['bonus_defesa']}")
         print("---------------------------------------")

@@ -1,5 +1,6 @@
 from utils import limpa
 from player import criar_player
+from cores import BRANCO, MARROM, CIANO, VERMELHO, VERDE, RESET
 import time
 
 def personalizando_heroi():
@@ -28,23 +29,23 @@ def personalizando_heroi():
         except ValueError:
             roupa = 0
         if roupa == 1:
-            print("PARABÉNS! Sua skin é a do Vovô Casado!") 
+            print(f"{VERDE}PARABÉNS!{RESET} Sua skin é a do Vovô Casado!") 
             player["skin"] = "Vovô Casado"
             time.sleep(2) 
             break
            
         elif roupa == 2:
-            print("PARABÉNS! Sua skin é do Detetive!") 
+            print(f"{VERDE}PARABÉNS!{RESET} Sua skin é do Detetive!") 
             player["skin"] = "Detetive"
             time.sleep(2)
             break
         elif roupa == 3:
-            print("PARABÉNS! Sua skin é a do Caçador!")        
+            print(f"{VERDE}PARABÉNS!{RESET} Sua skin é a do Caçador!")        
             player["skin"] = "Caçador"
             time.sleep(2)
             break
         else:
-            print("NÃO TEMOS ESSA SKIN, Escolha uma das opções acima!")
+            print(f"{VERMELHO}NÃO TEMOS ESSA SKIN{RESET}, Escolha uma das opções acima!")
             time.sleep(2)
         
     while True:
@@ -53,34 +54,35 @@ def personalizando_heroi():
         print("        EQUIPAMENTO DE BATALHA         ")
         print("=======================================")
         print("Escolha sua espada: ")
-        print("1. Espada de Madeira")
-        print("2. Espada de Ferro")
-        print("3. Espada de Diamante")
+        print(f"1. {MARROM}Espada de Madeira{RESET}")
+        print(f"2. {BRANCO}Espada de Ferro{RESET}")
+        print(f"3. {CIANO}Espada de Diamante{RESET}")
         try:
             espada = int(input("Qual espada você quer? "))
         except ValueError:
             espada = 0
             
+        print(' ')
         if espada == 1:
-            print("BOA ESCOLHA! Espada de Madeira equipada!")
+            print(f"BOA ESCOLHA! {MARROM}Espada de Madeira{RESET} equipada!")
             player["bonus_ataque"] += 2
             time.sleep(2)
             break
             
         elif espada == 2:
-            print("ÓTIMA ESCOLHA! Espada de Ferro equipada!")
+            print(f"ÓTIMA ESCOLHA! {BRANCO}Espada de Ferro{RESET} equipada!")
             player["bonus_ataque"] += 3
             time.sleep(2)
             break
             
         elif espada == 3:
-            print("EXCELENTE ESCOLHA! Espada de Diamante!")
+            print(f"EXCELENTE ESCOLHA! {CIANO}Espada de Diamante{RESET}!")
             player["bonus_ataque"] += 4
             time.sleep(2)
             break
             
         else:
-            print("NÃO TEMOS ESSA ESPADA, Escolha uma das opções acima!")
+            print(f"{VERMELHO}NÃO TEMOS ESSA ESPADA{RESET}, Escolha uma das opções acima!")
             time.sleep(2)
 
     return player
