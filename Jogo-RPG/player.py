@@ -1,3 +1,5 @@
+# Estrutura de dados do jogador (dicionário) e valores iniciais
+
 def criar_player(nome):
     return {
     "nome": nome,

@@ -1,3 +1,5 @@
+# Salvar, carregar e apagar o progresso do jogador em JSON
+
 import os
 import json
 from player import criar_player

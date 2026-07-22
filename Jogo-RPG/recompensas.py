@@ -1,3 +1,5 @@
+# Sistema de baú: sorteio ponderado por raridade + frases variadas
+
 import random
 import time
 from utils import limpa

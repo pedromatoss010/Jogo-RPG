@@ -1,8 +1,12 @@
+# Compra de itens/upgrades usando o ouro do jogador
+
 import time
 from utils import limpa
 
 def loja(player):
     while True:
+        # Preço sobe 35 moedas a cada compra (base 90) pra evitar que o jogador
+        # empilhe bônus de ataque/defesa infinitamente gastando pouco ouro
         preco_espada = 90 + (player["compras_espada"] * 35)
         preco_escudo = 90 + (player["compras_escudo"] * 35)
         limpa()

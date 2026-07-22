@@ -1,3 +1,5 @@
+# Loop principal do jogo, menu, fluxo entre exploração/loja/combate/game over
+
 from combate import combate
 from utils import limpa
 from loja import loja

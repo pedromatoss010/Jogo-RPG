@@ -1,5 +1,7 @@
+# Lógica de turnos do combate: ataque, poção, bomba e dano do inimigo
+
 from utils import limpa
-from inimigos import escolher_inimigo
+from inimigos import escolher_inimigo, frase_de_encontro, frase_de_vitoria
 from recompensas import abrir_bau
 
 import time
@@ -7,10 +9,10 @@ import random
 
 def combate(player):
     inimigo = escolher_inimigo(player["vitorias"])
+    print(frase_de_encontro(inimigo['nome']))
+    time.sleep(2.6)
     limpa()
-    print(f"CILADA! Um {inimigo['nome']} bloqueia seu caminho!")
-    time.sleep(2)
-    
+ 
     round_atual = 1
 
     while player["hp"] > 0 and inimigo["hp"] > 0:  #
@@ -30,7 +32,7 @@ def combate(player):
             dano_jogador = random.randint(19, 26) + player["bonus_ataque"]
             inimigo["hp"] -= dano_jogador
             print(f"--> Você causou {dano_jogador} de dano!")
-            time.sleep(0.7)
+            time.sleep(0.8)
 
         elif acao_combate == 2: 
             if player["pocoes"] > 0:
@@ -57,13 +59,13 @@ def combate(player):
         if inimigo["hp"] > 0: 
             dano_inimigo = max(0, random.randint(inimigo["dano_min"], inimigo["dano_max"]) - player["bonus_defesa"])
             player["hp"] -= dano_inimigo
-            print(f"O {inimigo['nome']} causou {dano_inimigo} de dano!")
-            time.sleep(0.7)
+            print(f"--> {inimigo['nome']} causou {dano_inimigo} de dano!")
+            time.sleep(0.8)
 
             round_atual += 1
 
     if player["hp"] > 0: # 
-        print(f"VITÓRIA! Você derrotou o {inimigo["nome"]} em {round_atual} rounds!")
+        print(frase_de_vitoria(inimigo['nome'], round_atual))
         player["ouro"] += inimigo['ouro']
         player["vitorias"] += 1
         round_atual = 0
