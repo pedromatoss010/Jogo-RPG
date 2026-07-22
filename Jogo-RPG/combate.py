@@ -3,6 +3,7 @@
 from utils import limpa
 from inimigos import escolher_inimigo, frase_de_encontro, frase_de_vitoria
 from recompensas import abrir_bau
+from cores import CIANO, VERDE, VERMELHO, RESET
 
 import time
 import random
@@ -31,7 +32,7 @@ def combate(player):
         if acao_combate == 1: 
             dano_jogador = random.randint(19, 26) + player["bonus_ataque"]
             inimigo["hp"] -= dano_jogador
-            print(f"--> Você causou {dano_jogador} de dano!")
+            print(f"--> Você causou {CIANO}{dano_jogador}{RESET} de dano!")
             time.sleep(0.8)
 
         elif acao_combate == 2: 
@@ -39,10 +40,10 @@ def combate(player):
                 player["pocoes"] -= 1
                 cura = int(player["hp_max"] * 0.3)
                 player["hp"] = min(player["hp_max"], player["hp"] + cura)
-                print("Você recuperou energia!")
+                print(f"{VERDE}Você recuperou energia!{RESET}")
                 time.sleep(0.7)
             else:
-                print("Você não tem poções! Perdeu o turno!")
+                print(f"Você não tem poções! {VERMELHO}Perdeu o turno!{RESET}")
                 time.sleep(0.7)
 
         elif acao_combate == 3:
@@ -50,16 +51,16 @@ def combate(player):
                 dano_bomba = random.randint(30, 55)
                 inimigo["hp"] -= dano_bomba
                 player["bomba"] -= 1
-                print(f"Bomba causou {dano_bomba} de dano!")
+                print(f"Bomba causou {VERMELHO}{dano_bomba}{RESET} de dano!")
                 time.sleep(0.7)
             else:
-                print("Você não tem bombas!")
+                print(f"Você não tem bombas! {VERMELHO} Perdeu o turno!{RESET}")
                 time.sleep(0.7)
 
         if inimigo["hp"] > 0: 
             dano_inimigo = max(0, random.randint(inimigo["dano_min"], inimigo["dano_max"]) - player["bonus_defesa"])
             player["hp"] -= dano_inimigo
-            print(f"--> {inimigo['nome']} causou {dano_inimigo} de dano!")
+            print(f"--> {inimigo['nome']} causou {VERMELHO}{dano_inimigo}{RESET} de dano!")
             time.sleep(0.8)
 
             round_atual += 1

@@ -2,6 +2,7 @@
 
 import time
 from utils import limpa
+from cores import AMARELO, VERDE, AZUL, VERMELHO, RESET
 
 def loja(player):
     while True:
@@ -11,12 +12,12 @@ def loja(player):
         preco_escudo = 90 + (player["compras_escudo"] * 35)
         limpa()
         print("------------ LOJA SOMBRIA ------------")
-        print(f"Seu ouro: {player['ouro']}")
+        print(f"Seu ouro: {AMARELO}{player['ouro']}{RESET}")
         print("---------------------------------------------")
-        print("1. Poção de cura (50 moedas)")
-        print(f"2. Afiar Espada(+5 Dano fixo) ({preco_espada} Moedas)")
-        print(f"3. Comprar Escudo (+5 Defesa) ({preco_escudo} Moedas)")
-        print("4. Comprar Bomba (100 Moedas)")
+        print(f"1. Poção de cura {AMARELO}(50 moedas){RESET}")
+        print(f"2. Afiar Espada({VERDE}+5 Dano fixo {RESET}) ({AMARELO}{preco_espada} Moedas{RESET})")
+        print(f"3. Comprar Escudo ({VERDE}+5 Defesa{RESET}) {AMARELO}({preco_escudo} Moedas{RESET})")
+        print(f"4. Comprar Bomba ({AMARELO}100 Moedas{RESET})")
         print("5. Voltar para a Torre")
         print("---------------------------------------------")
         try:
@@ -32,7 +33,8 @@ def loja(player):
                 print("Poção comprada!")
                 time.sleep(1)
             else:
-                print("Ouro insuficiente!")
+                print(" ")
+                print(f"{VERMELHO}Ouro insuficiente!{RESET}")
                 time.sleep(1)
 
         elif acao == 2:
@@ -44,7 +46,8 @@ def loja(player):
                 print("Sua espada esta mais afiada, Vá para o combate!")
                 time.sleep(2)
             else:
-                print("Ouro insuficiente!")
+                print("")
+                print(f"{VERMELHO}Ouro insuficiente!{RESET}")
                 time.sleep(2)
 
         elif  acao == 3:
@@ -56,7 +59,8 @@ def loja(player):
                 print("Você está mais protegido!")
                 time.sleep(1)
             else:
-                print("Ouro insuficiente!")
+                print("")
+                print(f"{VERMELHO}Ouro insuficiente!{RESET}")
                 time.sleep(1)
 
         elif acao == 4:
@@ -67,7 +71,8 @@ def loja(player):
                 print("Você comprou uma bomba!")
                 time.sleep(1)
             else:
-                print("Ouro insuficiente!")
+                print(" ")
+                print(f"{VERMELHO}Ouro insuficiente!{RESET}")
                 time.sleep(1)
 
         elif acao == 5:
@@ -76,5 +81,6 @@ def loja(player):
             time.sleep(1)
             break
         else:
-            print("Ação inválida! Tente novamente.")
+            print(" ")
+            print(f"{VERMELHO}Ação inválida!{RESET} Tente novamente.")
             time.sleep(3)

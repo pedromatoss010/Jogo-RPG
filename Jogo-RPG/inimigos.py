@@ -2,7 +2,8 @@
 
 import random
 import copy
-import random
+from cores import VERDE, RESET
+
 INIMIGOS = {
     "esqueleto": {"nome": "o Esqueleto", "hp": 130, "dano_min": 17, "dano_max": 22, "ouro": 40, "vitorias_min": 0},
     "rato": {"nome": "o Rato Gigante", "hp": 60, "dano_min": 8, "dano_max": 14, "ouro": 20, "vitorias_min": 0},
@@ -35,11 +36,13 @@ def frase_de_encontro(inimigo):
     return frase.format(inimigo=inimigo)
 
 
+from cores import VERDE, RESET
+
 frases_vitoria = [
-    "VITÓRIA! Você derrotou {inimigo} em {rounds} rounds!",
-    "{inimigo} cai derrotado! Vitória conquistada em {rounds} rounds!",
+    VERDE + "VITÓRIA!" + RESET + " Você derrotou {inimigo} em {rounds} rounds!",
+    "{inimigo} cai derrotado! " + VERDE + "Vitória" + RESET + " conquistada em {rounds} rounds!",
     "Com um golpe final, você venceu {inimigo}! ({rounds} rounds)",
-    "{inimigo} não teve chances! Vitória em {rounds} rounds!",
+    "{inimigo} não teve chances! " + VERDE + "Vitória" + RESET + " em {rounds} rounds!",
 ]
 
 def frase_de_vitoria(inimigo, round):
