@@ -3,40 +3,43 @@
 import random
 import time
 from utils import limpa
+from cores import VERDE, AMARELO, VERMELHO, ROXO, RESET
+
+
 frases_moedas = [
-    "Você ganhou {moedas} moedas de ouro!",
-    "O baú brilha! Você encontrou {moedas} moedas de ouro!",
-    "Um punhado de moedas reluzentes! +{moedas} de ouro."
+    "Você ganhou " + AMARELO + "{moedas}" + RESET + " moedas de ouro!",
+    "O baú brilha! Você encontrou " + AMARELO + "{moedas}" + RESET + " moedas de ouro!",
+    "Um punhado de moedas reluzentes! +" + AMARELO + "{moedas}" + RESET + " de ouro."
 ]
 
 frases_pocao = [
-    "Você encontrou uma poção de cura!",
-    "Um frasco borbulhante estava escondido no baú — poção de cura adquirida!",
-    "Cheiro de ervas medicinais... você ganhou uma poção!"
+    "Você encontrou uma " + VERDE + "poção de cura" + RESET + "!",
+    "Um frasco borbulhante estava escondido no baú — " + VERDE + "poção de cura" + RESET + " adquirida!",
+    "Cheiro de ervas medicinais... você ganhou uma " + VERDE + "poção" + RESET + "!"
 ]
 
 frases_vida = [
-    "Uma energia reconfortante te envolve! Você recuperou {valor} de HP.",
-    "O baú emana uma luz curativa — HP restaurado em {valor}!",
-    "Você sente suas forças voltarem! +{valor} de HP."
+    "Uma energia reconfortante te envolve! Você recuperou " + VERDE + "{valor}" + RESET + " de HP.",
+    "O baú emana uma luz curativa — HP restaurado em " + VERDE + "{valor}" + RESET + "!",
+    "Você sente suas forças voltarem! +" + VERDE + "{valor}" + RESET + " de HP."
 ]
 
 frases_bomba = [
-    "Uma bomba! Cuidado ao manuseá-la, mas ela é sua agora.",
-    "Você encontrou uma bomba explosiva escondida no fundo do baú!",
-    "Pólvora e pavio... você ganhou uma bomba!"
+    "Uma " + VERMELHO + "bomba" + RESET + "! Cuidado ao manuseá-la, mas ela é sua agora.",
+    "Você encontrou uma " + VERMELHO + "bomba explosiva" + RESET + " escondida no fundo do baú!",
+    "Pólvora e pavio... você ganhou uma " + VERMELHO + "bomba" + RESET + "!"
 ]
 
 frases_espada = [
-    "Uma espada encantada reluz dentro do baú! Seu ataque aumentou permanentemente!",
-    "Lâmina antiga, mas ainda afiada — bônus de ataque conquistado!",
-    "Você sente o poder da lâmina fluir por suas mãos! Ataque +{valor}."
+    "Uma " + ROXO + "espada encantada" + RESET + " reluz dentro do baú! Seu ataque aumentou permanentemente!",
+    "Lâmina antiga, mas ainda afiada — " + ROXO + "bônus de ataque" + RESET + " conquistado!",
+    "Você sente o poder da lâmina fluir por suas mãos! Ataque +" + ROXO + "{valor}" + RESET + "."
 ]
 
 frases_escudo = [
-    "Um escudo antigo, resistente ao tempo! Sua defesa aumentou permanentemente!",
-    "Placas de metal reforçado — bônus de defesa conquistado!",
-    "Você se sente mais protegido ao empunhar este escudo! Defesa +{valor}."
+    "Um " + ROXO + "escudo antigo" + RESET + ", resistente ao tempo! Sua defesa aumentou permanentemente!",
+    "Placas de metal reforçado — " + ROXO + "bônus de defesa" + RESET + " conquistado!",
+    "Você se sente mais protegido ao empunhar este escudo! Defesa +" + ROXO + "{valor}" + RESET + "."
 ]
 
 def abrir_bau(player):

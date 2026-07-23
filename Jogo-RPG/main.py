@@ -10,6 +10,7 @@ from cores import AMARELO,VERDE, VERMELHO, CIANO ,AZUL, RESET
 import time
 import random
 
+won_play = False
 def main():
     limpa()
     if existe_save():
@@ -44,8 +45,8 @@ def main():
         print("=======================================")
         print(f"Herói: {player['nome']} | Skin: {player['skin']}")
         print(f"HP: {player['hp']}/{player['hp_max']} | Ouro: {AMARELO}{player['ouro']} {RESET}| Poções: {AZUL}{player['pocoes']}{RESET}")
-        print(f"Ataque: +{player['bonus_ataque']} | Vitórias: {AZUL}{player['vitorias']}{RESET}")
-        print(f"Defesa: +{player['bonus_defesa']}")
+        print(f"Ataque: {AZUL}+{player['bonus_ataque']}{RESET} | Vitórias: {AZUL}{player['vitorias']}{RESET}")
+        print(f"Defesa: {AZUL}+{player['bonus_defesa']}{RESET}")
         print("---------------------------------------")
         print("1. Explorar a Torre")
         print("2. Tomar Poção")
@@ -72,7 +73,10 @@ def main():
                     time.sleep(2)
 
                 elif evento == 2:
-                    combate(player)
+                    won_play = combate(player)
+                    if won_play:
+                        won_play = True
+                        break
                     time.sleep(1)
 
                 else:
@@ -123,16 +127,30 @@ def main():
             case _:
                 print(f"{VERMELHO}Ação inválida!{RESET}")
                 time.sleep(1)
-    limpa()
-    print(f"{VERMELHO}=======================================")
-    print(f"              GAME OVER                ")
-    print(f"======================================={RESET}")
-    print(f"Seu herói, {player['nome']}, caiu na Torre do Mago Sombrio...")
-    print(f"Vitórias conquistadas: {AMARELO}{player['vitorias']}{RESET}")
-    print(f"Ouro acumulado: {AMARELO}{player['ouro']}{RESET}")
-    print("=======================================")
-    time.sleep(4)
-    apagar_save()
+
+    if won_play:
+        limpa()
+        print(f"{VERDE}=======================================")
+        print(f"          VITÓRIA! FIM DE JOGO          ")
+        print(f"======================================={RESET}")
+        print(f"Parabéns, {player['nome']}! Você derrotou o Mago Sombrio")
+        print(f"e libertou a Torre de sua sombra para sempre!")
+        print(f"Vitórias conquistadas: {AMARELO}{player['vitorias']}{RESET}")
+        print(f"Ouro acumulado: {AMARELO}{player['ouro']}{RESET}")
+        print("=======================================")
+        time.sleep(4)
+        apagar_save()
+    else:
+        limpa()
+        print(f"{VERMELHO}=======================================")
+        print(f"              GAME OVER                ")
+        print(f"======================================={RESET}")
+        print(f"Seu herói, {player['nome']}, caiu na Torre do Mago Sombrio...")
+        print(f"Vitórias conquistadas: {AMARELO}{player['vitorias']}{RESET}")
+        print(f"Ouro acumulado: {AMARELO}{player['ouro']}{RESET}")
+        print("=======================================")
+        time.sleep(4)
+        apagar_save()
 
 if __name__ == "__main__":
     main()

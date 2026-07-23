@@ -5,7 +5,7 @@ def criar_player(nome):
     "nome": nome,
     "hp": 300,
     "hp_max": 300,
-    "ouro": 67, 
+    "ouro": 6007, 
     "pocoes": 1,
     "bomba": 0,
     "bonus_defesa": 0,

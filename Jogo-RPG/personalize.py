@@ -9,6 +9,7 @@ def personalizando_heroi():
     print("                HERÓI                  ")
     print("=======================================")
     nome = input("Digite o nome do seu herói: ")
+    print(' ')
     print(f"Bem-vindo, {nome}!")
     time.sleep(2)
     limpa()
@@ -28,6 +29,7 @@ def personalizando_heroi():
             roupa = int(input("Qual vai escolher? "))
         except ValueError:
             roupa = 0
+        print(' ')
         if roupa == 1:
             print(f"{VERDE}PARABÉNS!{RESET} Sua skin é a do Vovô Casado!") 
             player["skin"] = "Vovô Casado"

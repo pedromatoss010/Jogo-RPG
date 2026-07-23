@@ -30,7 +30,7 @@ def loja(player):
                 player["ouro"] -= 50
                 player["pocoes"] += 1
                 print("")
-                print("Poção comprada!")
+                print(f"{VERDE}Poção comprada!{RESET}")
                 time.sleep(1)
             else:
                 print(" ")
@@ -43,7 +43,7 @@ def loja(player):
                 player["bonus_ataque"] += 5
                 player["compras_espada"] += 1
                 print("")
-                print("Sua espada esta mais afiada, Vá para o combate!")
+                print(f"{AZUL}Sua espada esta mais afiada{RESET}, Vá para o combate!")
                 time.sleep(2)
             else:
                 print("")
@@ -56,7 +56,7 @@ def loja(player):
                 player["bonus_defesa"] += 5
                 player["compras_escudo"] += 1
                 print("")
-                print("Você está mais protegido!")
+                print(f"Você está {AZUL}mais protegido!{RESET}")
                 time.sleep(1)
             else:
                 print("")
@@ -68,7 +68,7 @@ def loja(player):
                 player["ouro"] -= 100
                 player["bomba"] += 1
                 print("")
-                print("Você comprou uma bomba!")
+                print(f"Você comprou uma {VERMELHO}bomba!{RESET}")
                 time.sleep(1)
             else:
                 print(" ")
