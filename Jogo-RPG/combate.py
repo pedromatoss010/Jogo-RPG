@@ -77,6 +77,6 @@ def combate(player):
             print("Você encontrou um baú. Vamos descobrir oque tem dentro dele!")
             time.sleep(1.5)
             abrir_bau(player)
-    if inimigo["id"] == "mago_sombrio":
-        return True
+        if inimigo["id"] == "mago_sombrio":
+            return True
     return False

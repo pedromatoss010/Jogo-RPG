@@ -10,7 +10,7 @@ from cores import AMARELO,VERDE, VERMELHO, CIANO ,AZUL, RESET
 import time
 import random
 
-won_play = False
+
 def main():
     limpa()
     if existe_save():
